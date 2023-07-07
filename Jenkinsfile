@@ -7,11 +7,16 @@ pipeline {
         IMAGE_NAME = 'aishafathy/demo-app:java-maven-2.0'
     }
     stages {
+        stage("init"){
+            script {
+                gv = load 'script.groovy'
+            }
+        }
         stage('build app') {
             steps {
                script {
                   echo 'building application jar...'
-                  buildJar()
+                  gv.buildJar()
                }
             }
         }
@@ -19,9 +24,9 @@ pipeline {
             steps {
                 script {
                    echo 'building docker image...'
-                   buildImage(env.IMAGE_NAME)
-                   dockerLogin()
-                   dockerPush(env.IMAGE_NAME)
+                   gv.buildImage(env.IMAGE_NAME)
+                   gv.dockerLogin()
+                   gv.dockerPush(env.IMAGE_NAME)
                 }
             }
         }
