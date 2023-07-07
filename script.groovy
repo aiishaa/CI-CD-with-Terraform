@@ -4,7 +4,7 @@ def buildJar(){
 }
 
 def buildImage(String imageName){
-    sh "docker build $imageName ."
+    sh "docker build -t $imageName ."
 }
 
 def dockerLogin(){
