@@ -18,3 +18,4 @@ def dockerpush(String imageName){
     echo "pushing the docker image..."
     sh "docker push $imageName"
 }
+return this
