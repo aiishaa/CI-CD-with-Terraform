@@ -9,7 +9,7 @@ def buildImage(String imageName){
 
 def dockerLogin(){
     echo "building the docker image..."
-    WithCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+    withCredentials([usernamePassword(credentialsId: 'docker-hub-repo', passwordVariable: 'PASS', usernameVariable: 'USER')]){
         sh "echo $PASS | docker login -u $USER --password-stdin"
     }
 }
