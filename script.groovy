@@ -14,7 +14,7 @@ def dockerLogin(){
     }
 }
 
-def dockerpush(String imageName){
+def dockerPush(String imageName){
     echo "pushing the docker image..."
     sh "docker push $imageName"
 }
