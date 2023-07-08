@@ -66,7 +66,7 @@ resource "aws_default_security_group" "default-sg"{
 data "aws_ami" "latest-amazon-linux-image" {
     most_recent = true
     owners = ["amazon"]
-    filter = {
+    filter {
         name = "name"
         values = ["amzn2-ami-hvm-*-x86_64-gp2"]
     }
